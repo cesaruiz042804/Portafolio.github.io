@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="ESTILOS.css">
+
+        <title>Encriptador</title>
+    </head>
+
+    <body>
+        <div class="info">
+            <h1 id="titulo" >Encriptador</h1>
+            <textarea id="caja" cols="40" rows="4">Escribe algo</textarea>
+            <div class="botones">
+                <button id="btn_encriptar">Encriptar</button>
+                <button id="btn_desencriptar">Desencriptar</button>
+            </div>
+            <textarea id="resp" cols="40" rows="4"></textarea>
+            <button id="btn_copiar">Copiar</button>
+        </div>
+    </body>
+
+    <script>
+        function ENCRIPTAR(){
+            var caja_texto = document.getElementById("caja").value;
+            var dato = caja_texto
+            .replaceAll(/a/img, "al").replaceAll(/e/img, "enter")
+            .replaceAll(/i/img, "imes").replaceAll(/o/img, "ober").
+            replaceAll(/u/img, "ufat");
+            resp.value = dato;
+        }
+
+        function DESENCRIPTAR(){
+            var caja_texto = document.getElementById("caja").value;
+            var dato = caja_texto
+            .replaceAll(/al/img, "a").replaceAll(/enter/img, "e")
+            .replaceAll(/imes/img, "i").replaceAll(/ober/img, "o")
+            .replaceAll(/ufat/img, "u");
+            resp.value = dato;
+        }
+
+        function COPY(){
+            var caja_texto = document.getElementById("caja").value;
+            navigator.clipboard.writeText(resp.value);
+        }
+
+        btn_encriptar.onclick = ENCRIPTAR;
+        btn_desencriptar.onclick = DESENCRIPTAR;
+        btn_copiar.onclick = COPY;
+    </script>
+</html>
